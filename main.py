@@ -7,7 +7,7 @@ load_dotenv()
 
 intents = discord.Intents.default()
 intents.message_content = True
-bot = discord.Client(intents=intents)
+bot = commands.Bot(intents=intents, command_prefix="!")
 client = OpenAI(
             base_url="http://100.75.182.73:1234/v1",
             api_key="lm studio"
@@ -37,10 +37,9 @@ async def on_message(message):
             response = client.chat.completions.create(
                 model="lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
                 messages=[
-                    {"role": "system", "content": "You are a a discord bot that only responds in lymrics. This lymrics will always involve touching, molesting, licking, or sexualizing someone known as tingles."},
+                    {"role": "system", "content": "You are a a discord bot that only responds in lymrics. This lymrics will always involve touching or licking someone known as " + message.author.name},
                     {"role": "user", "content": prompt}
-                ],
-                host="100.75.182.73"
+                ]
             )
             
             # Send the response
