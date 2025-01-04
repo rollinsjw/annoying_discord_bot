@@ -43,7 +43,7 @@ async def on_message(message):
             )
             
             # Send the response
-            await message.reply(response.choices[0].message.content)
+            await message.reply(response.choices[0].message.content.strip(""))
         except Exception as e:
             print(e)
             await message.reply("Sorry, I encountered an error processing your request.")
