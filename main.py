@@ -9,7 +9,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(intents=intents, command_prefix="!")
 client = OpenAI(
-            base_url="http://100.75.182.73:1234/v1",
+            base_url=os.getenv("llm_host"),
             api_key="lm studio"
         )
 
