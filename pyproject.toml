@@ -6,7 +6,7 @@ authors = ["Will Rollins <rollinsjw@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.12"
 discord-py = "^2.4.0"
 openai = "^1.59.3"
 python-dotenv = "^1.0.1"
